@@ -44,7 +44,7 @@ target_link_libraries( ${TARGET_NAME} openvx )
 
 install ( TARGETS ${TARGET_NAME} 
           RUNTIME DESTINATION bin
-          ARCHIVE DESTINATION bin
-          LIBRARY DESTINATION bin )
+          ARCHIVE DESTINATION lib
+          LIBRARY DESTINATION lib )
 		  
 set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER ${KERNELS_FOLDER} )

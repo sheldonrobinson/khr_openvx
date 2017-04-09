@@ -41,7 +41,7 @@ add_executable (${TARGET_NAME} ${SOURCE_FILES})
 
 install ( TARGETS ${TARGET_NAME} 
           RUNTIME DESTINATION bin
-          ARCHIVE DESTINATION bin
-          LIBRARY DESTINATION bin )
+          ARCHIVE DESTINATION lib
+          LIBRARY DESTINATION lib )
 		  
 set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER ${TOOLS_FOLDER} )

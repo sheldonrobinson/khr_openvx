@@ -36,7 +36,7 @@ void vxPrintKernel(vx_kernel kernel)
             kernel->name);
 }
 
-vx_bool ownIsKernelUnique(vx_kernel kernel) {
+VX_API_ENTRY vx_bool VX_API_CALL ownIsKernelUnique(vx_kernel kernel) {
     vx_uint32 t = 0u, k = 0u;
     vx_context context = kernel->base.context;
     vx_bool unique = vx_true_e;
@@ -91,7 +91,7 @@ vx_kernel_t *ownAllocateKernel(vx_context context,
     return kernel;
 }
 
-vx_status ownInitializeKernel(vx_context context,
+VX_API_ENTRY vx_status VX_API_CALL ownInitializeKernel(vx_context context,
                              vx_kernel kernel,
                              vx_enum kenum,
                              vx_kernel_f function,
@@ -151,7 +151,7 @@ vx_status ownInitializeKernel(vx_context context,
     }
 }
 
-vx_status ownDeinitializeKernel(vx_kernel *kernel)
+VX_API_ENTRY vx_status VX_API_CALL ownDeinitializeKernel(vx_kernel *kernel)
 {
     vx_status status = VX_SUCCESS;
     if (kernel && ownIsValidSpecificReference(&((*kernel)->base), VX_TYPE_KERNEL) == vx_true_e)

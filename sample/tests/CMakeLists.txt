@@ -42,7 +42,7 @@ target_link_libraries( ${TARGET_NAME} vx_xyz_lib openvx-debug-lib openvx-extras-
 install ( TARGETS ${TARGET_NAME} 
           RUNTIME DESTINATION bin
           ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION bin )
+          LIBRARY DESTINATION lib )
 		  
 set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER ${SAMPLE_FOLDER} )
 
@@ -52,7 +52,7 @@ target_link_libraries( ${TARGET_NAME2} openvx-debug-lib openvx-extras-lib openvx
 install ( TARGETS ${TARGET_NAME2} 
           RUNTIME DESTINATION bin
           ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION bin )
+          LIBRARY DESTINATION lib )
 set_target_properties( ${TARGET_NAME2} PROPERTIES FOLDER ${SAMPLE_FOLDER} )
 
 set( TARGET_NAME3 vx_bug13518 )
@@ -61,7 +61,7 @@ target_link_libraries( ${TARGET_NAME3} openvx-debug-lib openvx-extras-lib openvx
 install ( TARGETS ${TARGET_NAME3} 
           RUNTIME DESTINATION bin
           ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION bin )
+          LIBRARY DESTINATION lib )
 set_target_properties( ${TARGET_NAME3} PROPERTIES FOLDER ${SAMPLE_FOLDER} )
 
 set( TARGET_NAME4 vx_bug13517 )
@@ -70,7 +70,7 @@ target_link_libraries( ${TARGET_NAME4} openvx-debug-lib openvx-extras-lib openvx
 install ( TARGETS ${TARGET_NAME4} 
           RUNTIME DESTINATION bin
           ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION bin )
+          LIBRARY DESTINATION lib )
 set_target_properties( ${TARGET_NAME4} PROPERTIES FOLDER ${SAMPLE_FOLDER} )
 		  
 if ((UNIX) AND (OPENVX_USE_SDL))
@@ -85,7 +85,7 @@ if ((UNIX) AND (OPENVX_USE_SDL))
 	install ( TARGETS ${TARGET_NAME_CAM_TEST} 
 			  RUNTIME DESTINATION bin
 			  ARCHIVE DESTINATION lib
-			  LIBRARY DESTINATION bin )
+			  LIBRARY DESTINATION lib )
 			  
 	set_target_properties( ${TARGET_NAME_CAM_TEST} PROPERTIES FOLDER ${SAMPLE_FOLDER} )
 

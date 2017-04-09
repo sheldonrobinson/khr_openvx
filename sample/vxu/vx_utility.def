@@ -29,7 +29,7 @@ EXPORTS
 ;    vxuNot
 ;    vxuOr
 ;    vxuPhase
-;;    vxuPyramid
+;;   vxuPyramid
 ;    vxuScaleImage
 ;    vxuSobel3x3
 ;    vxuSubtract

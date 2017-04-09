@@ -58,10 +58,15 @@ if ( EXPERIMENTAL_USE_OPENCL )
 
     target_link_libraries( ${TARGET_NAME} openvx )
 
+	set_target_properties(${TARGET_NAME}  PROPERTIES
+				OUTPUT_NAME ${TARGET_NAME} 
+				DEBUG_POSTFIX "d"
+				)
+	
     install ( TARGETS ${TARGET_NAME} 
               RUNTIME DESTINATION bin
               ARCHIVE DESTINATION lib
-              LIBRARY DESTINATION bin )
+              LIBRARY DESTINATION lib )
 			  
 	set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER ${SAMPLE_TARGETS_FOLDER} )
 		  

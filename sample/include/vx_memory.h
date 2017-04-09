@@ -51,9 +51,9 @@ vx_bool ownFreeMemory(vx_context_t *context, vx_memory_t *memory);
  */
 vx_bool ownAllocateMemory(vx_context_t *context, vx_memory_t *memory);
 
-void ownPrintMemory(vx_memory_t *mem);
+VX_API_ENTRY void VX_API_CALL ownPrintMemory(vx_memory_t *mem);
 
-vx_size ownComputeMemorySize(vx_memory_t *memory, vx_uint32 p);
+VX_API_ENTRY vx_size VX_API_CALL ownComputeMemorySize(vx_memory_t *memory, vx_uint32 p);
 
 #ifdef __cplusplus
 }

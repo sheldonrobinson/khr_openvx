@@ -34,7 +34,8 @@ include_directories( BEFORE
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_SOURCE_DIR}/../include
                      ${CMAKE_SOURCE_DIR}/debug
-                     ${CMAKE_SOURCE_DIR}/include )
+                     ${CMAKE_SOURCE_DIR}/include
+					 ${OPENCL_INCLUDE_PATH} )
 					 
 if ((WIN32) OR (CYGWIN))
    add_definitions( ${OPENVX_BUILDING_EXPORT_DEF} )
@@ -49,15 +50,30 @@ endif ((WIN32) OR (CYGWIN))
 # add a target named ${TARGET_NAME}
 add_library (${TARGET_NAME} SHARED ${SOURCE_FILES} ${DEF_FILE})
 
+if (EXPERIMENTAL_USE_OPENCL)
+    if (OPENCL_LIB_PATH)
+	    find_library(LIB_OPENCL OpenCL HINTS ${OPENCL_LIB_PATH})
+		if (NOT LIB_OPENCL)
+		    message(FATAL_ERROR "Could not find OpenCL library")
+		endif (NOT LIB_OPENCL)
+		list( APPEND LINK_ADDITIONAL ${LIB_OPENCL} )
+	endif (OPENCL_LIB_PATH)
+endif (EXPERIMENTAL_USE_OPENCL)
+
 if (CYGWIN)
     set_target_properties( ${TARGET_NAME} PROPERTIES LINK_FLAGS ${CMAKE_CURRENT_SOURCE_DIR}/${DEF_FILE} )
 endif (CYGWIN)
 
 target_link_libraries( ${TARGET_NAME} openvx openvx-helper )
 
+set_target_properties(${TARGET_NAME}  PROPERTIES
+				OUTPUT_NAME ${TARGET_NAME} 
+				DEBUG_POSTFIX "d"
+				)
+
 install ( TARGETS ${TARGET_NAME} 
           RUNTIME DESTINATION bin
           ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION bin )
+          LIBRARY DESTINATION lib )
 		  
 set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER ${SAMPLE_FOLDER} )

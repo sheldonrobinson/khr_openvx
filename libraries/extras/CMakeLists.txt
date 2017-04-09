@@ -59,10 +59,15 @@ endif (CYGWIN)
 
 target_link_libraries( ${TARGET_NAME_2} openvx-helper openvx-extras_k-lib openvx )
 
+set_target_properties(${TARGET_NAME_2}  PROPERTIES
+			OUTPUT_NAME ${TARGET_NAME_2} 
+			DEBUG_POSTFIX "d"
+			)
+
 install ( TARGETS ${TARGET_NAME_1} ${TARGET_NAME_2}
           RUNTIME DESTINATION bin
-          ARCHIVE DESTINATION bin
-          LIBRARY DESTINATION bin )
+          ARCHIVE DESTINATION lib
+          LIBRARY DESTINATION lib )
 		  
 set_target_properties( ${TARGET_NAME_1} PROPERTIES FOLDER ${LIBRARIES_EXTRAS_FOLDER} )
 set_target_properties( ${TARGET_NAME_2} PROPERTIES FOLDER ${LIBRARIES_EXTRAS_FOLDER} )

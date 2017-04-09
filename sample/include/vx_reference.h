@@ -160,7 +160,7 @@ void ownReadFromReference(vx_reference ref);
 /*! \brief Returns the number of bytes in the internal structure for a given type.
  * \ingroup group_int_reference
  */
-vx_size ownSizeOfType(vx_enum type);
+VX_API_ENTRY vx_size VX_API_CALL ownSizeOfType(vx_enum type);
 
 #ifdef __cplusplus
 }

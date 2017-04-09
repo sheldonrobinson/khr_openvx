@@ -56,12 +56,20 @@ void ownDestroySem(vx_sem_t *sem);
 /*! \brief
  * \ingroup group_int_osal
  */
+#if defined(EXPERIMENTAL_USE_OPENCL)
+VX_API_ENTRY vx_bool VX_API_CALL  ownSemPost(vx_sem_t *sem);
+#else
 vx_bool ownSemPost(vx_sem_t *sem);
+#endif
 
 /*! \brief
  * \ingroup group_int_osal
  */
+#if defined(EXPERIMENTAL_USE_OPENCL)
+VX_API_ENTRY vx_bool VX_API_CALL  ownSemWait(vx_sem_t *sem);
+#else
 vx_bool ownSemWait(vx_sem_t *sem);
+#endif
 
 /*! \brief
  * \ingroup group_int_osal

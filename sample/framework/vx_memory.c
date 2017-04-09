@@ -128,7 +128,7 @@ vx_bool ownAllocateMemory(vx_context context, vx_memory_t *memory)
     return memory->allocated;
 }
 
-void ownPrintMemory(vx_memory_t *mem)
+VX_API_ENTRY void VX_API_CALL ownPrintMemory(vx_memory_t *mem)
 {
     vx_int32 d = 0;
     vx_uint32 p = 0;
@@ -146,7 +146,7 @@ void ownPrintMemory(vx_memory_t *mem)
     }
 }
 
-vx_size ownComputeMemorySize(vx_memory_t *memory, vx_uint32 p)
+VX_API_ENTRY vx_size VX_API_CALL ownComputeMemorySize(vx_memory_t *memory, vx_uint32 p)
 {
     return (memory->ndims == 0 ? 0 : (memory->dims[p][memory->ndims-1] * memory->strides[p][memory->ndims-1]));
 }

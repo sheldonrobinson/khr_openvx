@@ -43,7 +43,7 @@ extern "C" {
  * \param [in] showData If true, data objects will be listed in the graph too.
  * \see http://www.graphviz.com
  */
-vx_status vxExportGraphToDot(vx_graph g, vx_char dotfile[], vx_bool showData);
+VX_API_ENTRY vx_status VX_API_CALL vxExportGraphToDot(vx_graph g, vx_char dotfile[], vx_bool showData);
 
 #ifdef __cplusplus
 }

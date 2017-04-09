@@ -77,9 +77,14 @@ endif (CYGWIN)
 
 target_link_libraries( ${TARGET_NAME} openvx-helper vx_debug ${LINK_ADDITIONAL} )
 
+set_target_properties(${TARGET_NAME}  PROPERTIES
+				OUTPUT_NAME ${TARGET_NAME} 
+				DEBUG_POSTFIX "d"
+				)
+
 install ( TARGETS ${TARGET_NAME} 
           RUNTIME DESTINATION bin
           ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION bin )
+          LIBRARY DESTINATION lib )
 		  
 set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER ${SAMPLE_FOLDER} )

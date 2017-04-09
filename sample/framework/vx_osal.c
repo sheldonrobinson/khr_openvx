@@ -30,6 +30,7 @@
 
 #define BILLION (1000000000)
 
+
 vx_bool ownCreateSem(vx_sem_t *sem, vx_uint32 count)
 {
 #if defined(VX_PTHREAD_SEMAPHORE)
@@ -52,6 +53,7 @@ vx_bool ownCreateSem(vx_sem_t *sem, vx_uint32 count)
         return vx_false_e;
 }
 
+
 void ownDestroySem(vx_sem_t *sem)
 {
 #if defined(VX_PTHREAD_SEMAPHORE)
@@ -67,7 +69,11 @@ void ownDestroySem(vx_sem_t *sem)
 #endif
 }
 
+#if defined(EXPERIMENTAL_USE_OPENCL)
+VX_API_ENTRY vx_bool VX_API_CALL  ownSemPost(vx_sem_t *sem)
+#else
 vx_bool ownSemPost(vx_sem_t *sem)
+#endif
 {
 #if defined(VX_PTHREAD_SEMAPHORE)
     int ret0 = -1, ret1 = -1, ret2 = -1;
@@ -103,7 +109,11 @@ vx_bool ownSemPost(vx_sem_t *sem)
         return vx_false_e;
 }
 
+#if defined(EXPERIMENTAL_USE_OPENCL)
+VX_API_ENTRY vx_bool VX_API_CALL  ownSemWait(vx_sem_t *sem)
+#else
 vx_bool ownSemWait(vx_sem_t *sem)
+#endif
 {
 #if defined(VX_PTHREAD_SEMAPHORE)
     vx_bool res = vx_true_e;
@@ -164,6 +174,7 @@ vx_bool ownSemTryWait(vx_sem_t *sem)
     else
         return vx_false_e;
 }
+
 
 vx_bool ownDeinitEvent(vx_event_t *e)
 {

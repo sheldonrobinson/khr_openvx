@@ -74,7 +74,7 @@ vx_kernel_t *ownAllocateKernel(vx_context context,
  * \param [in] deinitialize The function to call to deinitialize the kernel.
  * \ingroup group_int_kernel
  */
-vx_status ownInitializeKernel(vx_context context,
+VX_API_ENTRY vx_status VX_API_CALL ownInitializeKernel(vx_context context,
                              vx_kernel kernel,
                              vx_enum kenum,
                              vx_kernel_f function,
@@ -91,13 +91,13 @@ vx_status ownInitializeKernel(vx_context context,
  * \param [in] kernel The pointer to the kernel structure.
  * \ingroup group_int_kernel
  */
-vx_status ownDeinitializeKernel(vx_kernel *kernel);
+VX_API_ENTRY vx_status VX_API_CALL ownDeinitializeKernel(vx_kernel *kernel);
 
 /*! \brief Determines if a kernel is unique in the system.
  * \param kernel The handle to the kernel.
  * \ingroup group_int_kernel
  */
-vx_bool ownIsKernelUnique(vx_kernel kernel);
+VX_API_ENTRY vx_bool VX_API_CALL ownIsKernelUnique(vx_kernel kernel);
 
 #ifdef __cplusplus
 }
